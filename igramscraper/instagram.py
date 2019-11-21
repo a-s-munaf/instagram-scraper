@@ -322,6 +322,13 @@ class Instagram:
                                                 variables))
 
             time.sleep(self.sleep_between_requests)
+
+            if index % 100 == 0:
+                time.sleep(1 + random.uniform(0, 3))
+            if index % 1000 == 0:
+                print(index, 'of', count)
+                time.sleep(300 + random.uniform(0, 20))
+
             response = self.__req.get(
                 endpoints.get_account_medias_json_link(variables),
                 headers=headers)
